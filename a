@@ -43,15 +43,12 @@ ENEMY = {
     "Hand": 100,
     "Зелья": 1
 }
-
-
 # Загрузка
 max = random.randint(10, 100)
 symb_load = '\\|/-\\|/-'
 length_load = len(symb_load)
 count = 0
 heiqght = 10
-
 p = 0
 d = ""
 loop = 1
@@ -145,7 +142,6 @@ while loop == 1:
             ProtScet = random.randint(2, 4)
         while mapgame == 1:
             # Игра на карте
-
 
             if mapgame == 1:
                 run = 0
