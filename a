@@ -47,23 +47,28 @@ fight = 0
 mapgame = 1
 rg = 0
 run = 0
-rp= random.randint(1,3)
+
 HERO = {
         "name": name,
         "Базовый урон": 15,
         '3': 100 + CHRS["Выносливость"] * 1,
         "И": inventory,
     }
-if rp == 1:
-    cordi1 = 1
-    cordi2 = 9
-if rp == 2:
-    cordi1 = 5
-    cordi2 = 5
-if rp == 3:
-    cordi1 = 5
-    cordi2 = 5
+
 while loop == 1:
+    rp = random.randint(1, 4)
+    if rp == 1:
+        cordi1 = 1
+        cordi2 = 9
+    if rp == 2:
+        cordi1 = 5
+        cordi2 = 5
+    if rp == 3:
+        cordi1 = 5
+        cordi2 = 5
+    if rp == 4:
+        cordi1 = 2
+        cordi2 = 1
     if rp == 1:
         pole = [['💎', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
                 ['💎', '🧱', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🧱', '😐', '🧱'],
@@ -100,7 +105,18 @@ while loop == 1:
                 ['🧱', '🧱', '🟫', '🧱', '🟫', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱'],
                 ['🧱', '🟫', '🟫', '🧱', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🧱'],
                 ['🧱', '💎', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '💎', '🧱']]
-
+    if rp == 4:
+        pole4 = [['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
+                ['🧱', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱', '🟫', '🧱'],
+                ['🧱', '😐', '🟫', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱'],
+                ['🧱', '🟫', '🧱', '🟫', '🟫', '🧱', '🟫', '🧱', '🧱', '🟫', '🧱'],
+                ['🧱', '🧱', '🟫', '🟫', '🧱', '🧱', '🟫', '🟫', '🟫', '💎', '🧱'],
+                ['🧱', '🧱', '🧱', '🟫', '🟫', '🧱', '🟫', '🧱', '🟫', '🟫', '🧱'],
+                ['🧱', '🟫', '🟫', '🟫', '🟫', '🧱', '🟫', '🟫', '🧱', '🟫', '🧱'],
+                ['🧱', '🟫', '🧱', '🟫', '🧱', '🟫', '🧱', '🧱', '🟫', '🟫', '🧱'],
+                ['🧱', '🟫', '🧱', '🧱', '🟫', '🧱', '🧱', '🧱', '🟫', '🟫', '🧱'],
+                ['🧱', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🧱', '🧱'],
+                ['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱']]
     while Endwin == 0 and smerti == 0:
         if slosnot == 1:
             ProtScet = random.randint(5, 8)
@@ -112,9 +128,7 @@ while loop == 1:
             ProtScet = random.randint(2, 4)
         while mapgame == 1:
             # Игра на карте
-            # if HERO['Position'] in radius_enemy:
-            # fight = 1
-            # mapgame = 1
+
 
             if mapgame == 1:
                 run = 0
@@ -134,12 +148,15 @@ while loop == 1:
                         for j in i:
                             print(j, end=' ')
                         print('')
-                esda = int(input('Куда идём 1=вниз 2=вверх 3=право 4=лево(1,2,3,4)'))
-                print(rg)
-                print(ProtScet)
-                while esda != 1 and esda != 2 and esda != 3 and esda != 4:
-                    esda = int(input('Куда идём 1=вниз 2=вверх 3=право 4=лево(1,2,3,4)'))
-                if esda == 1:
+                if rp == 4:
+                    for i in pole4:
+                        for j in i:
+                            print(j, end=' ')
+                        print('')
+                esda = input('Куда идём s=вниз w=вверх d=право a=лево')
+                while esda != "a" and esda != "s" and esda != "d" and esda != "w":
+                    esda = input('Куда идём s=вниз w=вверх d=право a=лево')
+                if esda == "s":
                     rg += 1
                     if rp == 1:
                         pole[cordi1][cordi2] = '🟫'
@@ -177,7 +194,19 @@ while loop == 1:
                             Endwin = Endwin + 1
                             mapgame = 0
                         pole3[cordi1][cordi2] = '😐'
-                if esda == 2:
+                    if rp == 4:
+                        pole4[cordi1][cordi2] = '🟫'
+                        cordi1 = cordi1 + 1
+                        if pole4[cordi1][cordi2] == '🧱':
+                            pole4[cordi1][cordi2] = '🧱'
+                            cordi1 = 2
+                            cordi2 = 1
+                            pole4[cordi1][cordi2] = '😐'
+                        if pole4[cordi1][cordi2] == '💎':
+                            Endwin = Endwin + 1
+                            mapgame = 0
+                        pole4[cordi1][cordi2] = '😐'
+                if esda == "w":
                     rg += 1
                     if rp == 1:
                         pole[cordi1][cordi2] = '🟫'
@@ -215,7 +244,19 @@ while loop == 1:
                             Endwin = Endwin + 1
                             mapgame = 0
                         pole3[cordi1][cordi2] = '😐'
-                if esda == 3:
+                    if rp == 4:
+                        pole4[cordi1][cordi2] = '🟫'
+                        cordi1 = cordi1 - 1
+                        if pole4[cordi1][cordi2] == '🧱':
+                            pole4[cordi1][cordi2] = '🧱'
+                            cordi1 = 2
+                            cordi2 = 1
+                            pole4[cordi1][cordi2] = '😐'
+                        if pole4[cordi1][cordi2] == '💎':
+                            Endwin = Endwin + 1
+                            mapgame = 0
+                        pole4[cordi1][cordi2] = '😐'
+                if esda == "d":
                     rg += 1
                     if rp == 1:
                         pole[cordi1][cordi2] = '🟫'
@@ -253,7 +294,19 @@ while loop == 1:
                             Endwin = Endwin + 1
                             mapgame = 0
                         pole3[cordi1][cordi2] = '😐'
-                if esda == 4:
+                    if rp == 4:
+                        pole4[cordi1][cordi2] = '🟫'
+                        cordi2 = cordi2 + 1
+                        if pole4[cordi1][cordi2] == '🧱':
+                            pole4[cordi1][cordi2] = '🧱'
+                            cordi1 = 2
+                            cordi2 = 1
+                            pole4[cordi1][cordi2] = '😐'
+                        if pole4[cordi1][cordi2] == '💎':
+                            Endwin = Endwin + 1
+                            mapgame = 0
+                        pole4[cordi1][cordi2] = '😐'
+                if esda == "a":
                     rg += 1
                     if rp == 1:
                         pole[cordi1][cordi2] = '🟫'
@@ -291,6 +344,18 @@ while loop == 1:
                             Endwin = Endwin + 1
                             mapgame = 0
                         pole3[cordi1][cordi2] = '😐'
+                    if rp == 4:
+                        pole4[cordi1][cordi2] = '🟫'
+                        cordi2 = cordi2 - 1
+                        if pole4[cordi1][cordi2] == '🧱':
+                            pole4[cordi1][cordi2] = '🧱'
+                            cordi1 = 2
+                            cordi2 = 1
+                            pole4[cordi1][cordi2] = '😐'
+                        if pole4[cordi1][cordi2] == '💎':
+                            Endwin = Endwin + 1
+                            mapgame = 0
+                        pole4[cordi1][cordi2] = '😐'
                 if rg == ProtScet:
                     mapgame = 0
                     fight = 1
@@ -375,10 +440,10 @@ while loop == 1:
             print(f'-----> Здоровье {name} \n{name} - {Hero_health_bar}  \n------> Здоровье противника \nENEMY - {Enemy_bar_health_bar}')
             while HERO["3"] > 0 and ENEMY['Health'] > 0:
                 print("Количество атак", CHRS["Усталость"])
-                d = input("-----> ⚔️Нажмите для атаки (a)\n-----> 🧪Для использования зельки (s) \n-----> 🔥Что бы востоновить силы (d) \n----> 🏃‍➡️Что бы сбежать PRESS (F) ")
+                d = input("-----> ⚔️Нажмите для атаки (a)\n-----> 🧪Для использования зельки (s) \n-----> 🔥Что бы востоновить силы (d) \n-----> 🏃‍➡️Что бы сбежать PRESS (F) ")
                 print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                 while d != "a" and d != "s" and d != "d" and d != "f":
-                    d = input("-----> ⚔️Нажмите для атаки (a)\n-----> 🧪Для использования зельки (s) \n-----> 🔥Что бы востоновить силы (d) \n----> 🏃‍➡️Что бы сбежать PRESS (F)")
+                    d = input("-----> ⚔️Нажмите для атаки (a)\n-----> 🧪Для использования зельки (s) \n-----> 🔥Что бы востоновить силы (d) \n-----> 🏃‍➡️Что бы сбежать PRESS (F)")
                     print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                 if d == 'a':
                     if CHRS['Усталость'] != 0:
@@ -399,12 +464,12 @@ while loop == 1:
                     else:
                         print("Вы устали, вам стоит отдохнуть")
                 if d == 'f':
-                    if random.randint(1,10) in [1]:
+                    if random.randint(1,15) in [1]:
                         print("Вы сбежали")
                         run = 1
-
+                        ENEMY["Health"] = -1000000
                     else:
-                        HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 40
+                        HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 40 - random.randint(1,250)
                         print("⚔️Враг не отпускает вас")
                         Hero_health_bar = int(HERO['3'] // 10) * health_icon
                         print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
@@ -465,7 +530,7 @@ while loop == 1:
                         print("⚔️Враг воспользоволся моментом и нанес урон")
                         Hero_health_bar = int(HERO['3'] // 10) * health_icon
                         print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
-                if ENEMY["Health"] < 50:
+                if ENEMY["Health"] < 50 and run !=1:
                     if ENEMY["Зелья"] > 0:
                         ENEMY["Health"] += random.randint(1, 60)
                         Enemy_bar_health_bar = ENEMY['Health'] * Enemy_bar_health_icon
@@ -528,7 +593,6 @@ while loop == 1:
                     print("Возрашаемся на карту...")
                     time.sleep(3)
                     rg = 0
-
     if smerti == 1:
         loop = input("Ты умер... Ты это знаеш? Так вот, хочешь заного начать? \n (ДА) --- (НЕТ)")
         win=0
