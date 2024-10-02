@@ -6,6 +6,23 @@ slosnot = int(input("Выберете уровень сложности  \n 1 - 
 while slosnot < 1 and slosnot > 4:
     slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆 \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
 time.sleep(1)
+skin_pers=int(input("Выберете себе скин персонажа \n 1 - 😐 \n 2 - 👹 \n 3 - 😀 \n 4 - 😎 \n 5 - 🤗 \n 6 - 🫡 \n 7 - 😼"))
+while skin_pers != 1 and skin_pers !=2 and skin_pers != 3 and skin_pers != 4 and skin_pers != 5 and skin_pers != 6 and skin_pers != 7:
+    skin_pers = int(input("Выберете себе скин персонажа \n 1 - 😐 \n 2 - 👹 \n 3 - 😀 \n 4 - 😎 \n 5 - 🤗 \n 6 - 🫡 \n 7 - 😼"))
+if skin_pers == 1:
+    skin_pers = '😐'
+if skin_pers == 2:
+    skin_pers = '👹'
+if skin_pers == 3:
+    skin_pers = '😀'
+if skin_pers == 4:
+    skin_pers = '😎'
+if skin_pers == 5:
+    skin_pers = '🤗'
+if skin_pers == 6:
+    skin_pers = '🫡'
+if skin_pers == 7:
+    skin_pers = '😼'
 print("Рекомендуеться играть на английской раскладке")
 time.sleep(2)
 smerti=0
@@ -71,7 +88,7 @@ while loop == 1:
         cordi2 = 1
     if rp == 1:
         pole = [['💎', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
-                ['💎', '🧱', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🧱', '😐', '🧱'],
+                ['💎', '🧱', '🟫', '🟫', '🟫', '🟫', '🟫', '🟫', '🧱', skin_pers, '🧱'],
                 ['💎', '🧱', '🟫', '🧱', '🟫', '🟫', '🧱', '🟫', '🧱', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🟫', '🟫', '🧱', '🧱', '🟫', '🧱', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🧱', '🟫', '🟫', '🧱', '🟫', '🟫', '🟫', '🧱'],
@@ -87,7 +104,7 @@ while loop == 1:
                 ['💎', '🧱', '🧱', '🧱', '🧱', '🟫', '🟫', '🟫', '🧱', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🟫', '🟫', '🧱', '🟫', '🧱', '🟫', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱', '🟫', '🟫', '🧱'],
-                ['💎', '🧱', '🟫', '🟫', '🟫', '😐', '🧱', '🟫', '🧱', '🟫', '🧱'],
+                ['💎', '🧱', '🟫', '🟫', '🟫', skin_pers, '🧱', '🟫', '🧱', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🧱', '🧱', '🟫', '🧱', '🟫', '🧱', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🟫', '🟫', '🟫', '🧱', '🟫', '🟫', '🟫', '🧱'],
                 ['💎', '🧱', '🟫', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱', '🟫', '🧱'],
@@ -99,7 +116,7 @@ while loop == 1:
                 ['🧱', '🟫', '🧱', '🟫', '🟫', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱'],
                 ['🧱', '🟫', '🧱', '🧱', '🟫', '🟫', '🧱', '🧱', '🟫', '🟫', '🧱'],
                 ['🧱', '🟫', '🧱', '🧱', '🧱', '🟫', '🧱', '🟫', '🧱', '🟫', '🧱'],
-                ['🧱', '🟫', '🧱', '🟫', '🟫', '😐', '🟫', '🟫', '🧱', '🟫', '🧱'],
+                ['🧱', '🟫', '🧱', '🟫', '🟫', skin_pers, '🟫', '🟫', '🧱', '🟫', '🧱'],
                 ['🧱', '🟫', '🟫', '🟫', '🧱', '🟫', '🧱', '🟫', '🟫', '🟫', '🧱'],
                 ['🧱', '🟫', '🧱', '🟫', '🟫', '🟫', '🟫', '🧱', '🟫', '🧱', '🧱'],
                 ['🧱', '🧱', '🟫', '🧱', '🟫', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱'],
@@ -108,7 +125,7 @@ while loop == 1:
     if rp == 4:
         pole4 = [['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
                 ['🧱', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱', '🟫', '🧱'],
-                ['🧱', '😐', '🟫', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱'],
+                ['🧱', skin_pers, '🟫', '🟫', '🧱', '🧱', '🧱', '🧱', '🧱', '🟫', '🧱'],
                 ['🧱', '🟫', '🧱', '🟫', '🟫', '🧱', '🟫', '🧱', '🧱', '🟫', '🧱'],
                 ['🧱', '🧱', '🟫', '🟫', '🧱', '🧱', '🟫', '🟫', '🟫', '💎', '🧱'],
                 ['🧱', '🧱', '🧱', '🟫', '🟫', '🧱', '🟫', '🧱', '🟫', '🟫', '🧱'],
@@ -165,11 +182,11 @@ while loop == 1:
                             pole[cordi1][cordi2] = '🧱'
                             cordi1 = 1
                             cordi2 = 9
-                            pole[cordi1][cordi2] = '😐'
+                            pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole[cordi1][cordi2] = '😐'
+                        pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
                         cordi1 = cordi1 + 1
@@ -177,11 +194,11 @@ while loop == 1:
                             pole2[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole2[cordi1][cordi2] = '😐'
+                            pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole2[cordi1][cordi2] = '😐'
+                        pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
                         cordi1 = cordi1 + 1
@@ -189,11 +206,11 @@ while loop == 1:
                             pole3[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole3[cordi1][cordi2] = '😐'
+                            pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole3[cordi1][cordi2] = '😐'
+                        pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
                         cordi1 = cordi1 + 1
@@ -201,11 +218,11 @@ while loop == 1:
                             pole4[cordi1][cordi2] = '🧱'
                             cordi1 = 2
                             cordi2 = 1
-                            pole4[cordi1][cordi2] = '😐'
+                            pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole4[cordi1][cordi2] = '😐'
+                        pole4[cordi1][cordi2] = skin_pers
                 if esda == "w":
                     rg += 1
                     if rp == 1:
@@ -215,11 +232,11 @@ while loop == 1:
                             pole[cordi1][cordi2] = '🧱'
                             cordi1 = 1
                             cordi2 = 9
-                            pole[cordi1][cordi2] = '😐'
+                            pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole[cordi1][cordi2] = '😐'
+                        pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
                         cordi1 = cordi1 - 1
@@ -227,11 +244,11 @@ while loop == 1:
                             pole2[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole2[cordi1][cordi2] = '😐'
+                            pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole2[cordi1][cordi2] = '😐'
+                        pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
                         cordi1 = cordi1 - 1
@@ -239,11 +256,11 @@ while loop == 1:
                             pole3[cordi1][cordi2] = '🧱'
                             cordi1 = 1
                             cordi2 = 9
-                            pole3[cordi1][cordi2] = '😐'
+                            pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole3[cordi1][cordi2] = '😐'
+                        pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
                         cordi1 = cordi1 - 1
@@ -251,11 +268,11 @@ while loop == 1:
                             pole4[cordi1][cordi2] = '🧱'
                             cordi1 = 2
                             cordi2 = 1
-                            pole4[cordi1][cordi2] = '😐'
+                            pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole4[cordi1][cordi2] = '😐'
+                        pole4[cordi1][cordi2] = skin_pers
                 if esda == "d":
                     rg += 1
                     if rp == 1:
@@ -265,11 +282,11 @@ while loop == 1:
                             pole[cordi1][cordi2] = '🧱'
                             cordi1 = 1
                             cordi2 = 9
-                            pole[cordi1][cordi2] = '😐'
+                            pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole[cordi1][cordi2] = '😐'
+                        pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
                         cordi2 = cordi2 + 1
@@ -277,11 +294,11 @@ while loop == 1:
                             pole2[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole2[cordi1][cordi2] = '😐'
+                            pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole2[cordi1][cordi2] = '😐'
+                        pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
                         cordi2 = cordi2 + 1
@@ -289,11 +306,11 @@ while loop == 1:
                             pole3[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole3[cordi1][cordi2] = '😐'
+                            pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole3[cordi1][cordi2] = '😐'
+                        pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
                         cordi2 = cordi2 + 1
@@ -301,11 +318,11 @@ while loop == 1:
                             pole4[cordi1][cordi2] = '🧱'
                             cordi1 = 2
                             cordi2 = 1
-                            pole4[cordi1][cordi2] = '😐'
+                            pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole4[cordi1][cordi2] = '😐'
+                        pole4[cordi1][cordi2] = skin_pers
                 if esda == "a":
                     rg += 1
                     if rp == 1:
@@ -315,11 +332,11 @@ while loop == 1:
                             pole[cordi1][cordi2] = '🧱'
                             cordi1 = 1
                             cordi2 = 9
-                            pole[cordi1][cordi2] = '😐'
+                            pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole[cordi1][cordi2] = '😐'
+                        pole[cordi1][cordi2] =skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
                         cordi2 = cordi2 - 1
@@ -327,11 +344,11 @@ while loop == 1:
                             pole2[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole2[cordi1][cordi2] = '😐'
+                            pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole2[cordi1][cordi2] = '😐'
+                        pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
                         cordi2 = cordi2 - 1
@@ -339,11 +356,11 @@ while loop == 1:
                             pole3[cordi1][cordi2] = '🧱'
                             cordi1 = 5
                             cordi2 = 5
-                            pole3[cordi1][cordi2] = '😐'
+                            pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole3[cordi1][cordi2] = '😐'
+                        pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
                         cordi2 = cordi2 - 1
@@ -351,11 +368,11 @@ while loop == 1:
                             pole4[cordi1][cordi2] = '🧱'
                             cordi1 = 2
                             cordi2 = 1
-                            pole4[cordi1][cordi2] = '😐'
+                            pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
                             Endwin = Endwin + 1
                             mapgame = 0
-                        pole4[cordi1][cordi2] = '😐'
+                        pole4[cordi1][cordi2] = skin_pers
                 if rg == ProtScet:
                     mapgame = 0
                     fight = 1
@@ -464,15 +481,20 @@ while loop == 1:
                     else:
                         print("Вы устали, вам стоит отдохнуть")
                 if d == 'f':
-                    if random.randint(1,15) in [1]:
-                        print("Вы сбежали")
-                        run = 1
-                        ENEMY["Health"] = -1000000
+                    if CHRS['Усталость'] > 0:
+
+                        if random.randint(1,15) in [1]:
+                            print("Вы сбежали")
+                            run = 1
+                            ENEMY["Health"] = -1000000
+                        else:
+                            CHRS['Усталость'] -= 1
+                            HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 40 - random.randint(1,50)
+                            print("⚔️Враг не отпускает вас")
+                            Hero_health_bar = int(HERO['3'] // 10) * health_icon
+                            print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
                     else:
-                        HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 40 - random.randint(1,250)
-                        print("⚔️Враг не отпускает вас")
-                        Hero_health_bar = int(HERO['3'] // 10) * health_icon
-                        print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
+                        print("Вы устали, вам стоит отдохнуть")
                 if d == 's':
                     if inventory["Зелье здоровья"] > 0:
                         inventory['Зелье здоровья'] -= 1
