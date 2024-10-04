@@ -44,7 +44,7 @@ inventory = {
     "Зелье здоровья": random.randint(1, 5),
     "меч":0,
     "щит":0,
-    'Money': 0
+    'Money': 1110
 }
 ENEMY = {
     "Health": 100,
@@ -93,18 +93,20 @@ while loop == 1:
         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
         print("Добро Пожаловать в Магазин Теней")
         time.sleep(1)
+        pred = ''
         while pred !="выход":
             TOVAR = {
                 'меч': 100,
-                'щит': 100
+                'щит': 100,
+                'зелье здоровья':20
+            }
+            TOVARKOL = {
+                'меч': 1,
+                'щит': 1,
+                'зелье здоровья': 2000
             }
             magazbye = 0
-            mapmagaz = [['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
-                        ['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
-                        ['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
-                        ['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
-                        ['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
-                        ['🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
+            mapmagaz = [
                         ['🧱', '🔳', '🧱', '🧱', '🧱', '🧱', '🧱', '🔳', '🧱', '🧱'],
                         ['🧱', '🧱', '🔳', '🧱', '🧱', '🧱', '🔳', '🧱', '🧱', '🧱'],
                         ['🧱', '🧱', '🧱', '🔳', '🔳', '🔳', '🧱', '🧱', '🧱', '🧱'],
@@ -164,17 +166,21 @@ while loop == 1:
                 for j in i:
                     print(j, end=' ')
                 print('')
-            print("У вас монет", inventory['Money'])
-            pred = input('Что Хотите купить? (Что бы выйти напиши )выход() \n Вот что ты можеш купить у меня в магазине \n 'Меч:'TOVAR['меч']\n Щит:'TOVAR['щит']).lower()
+            print("У вас",inventory['Money'] ,"монет")
+            print('Что Хотите купить? (Что бы выйти напиши выход) \nВот что ты можеш купить у меня в магазине')
+            print('Меч за твою жизнь или',TOVAR['меч'],'монет')
+            print('Щит за', TOVAR['щит'], 'монет')
+            print('Зелье здоровья за',TOVAR['зелье здоровья'], 'монет')
+            pred = input('Так что хочеш купить?')
             print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-            if pred != "меч" and pred != 'щит' and pred != 'выход':
+            if pred != "меч" and pred != 'щит' and pred != 'выход' and pred != 'зелье здоровья':
                 print("у меня нет данного предмета")
             else:
                 if pred == 'выход':
                     for i in mapmagazbye:
                         for j in i:
                             print(j, end=' ')
-                    print('')
+                        print('')
                     print("Увидимся снова, или нет_)")
                     time.sleep(2)
                     print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
@@ -182,63 +188,69 @@ while loop == 1:
                     time.sleep(2)
                     mapgame = 1
                 else:
-                    for i in mapmagaz2:
-                        for j in i:
-                            print(j, end=' ')
-                        print('')
-                    time.sleep(2)
-                    print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-                    if inventory['Money'] > TOVAR[pred]:
-                        for i in mapmagaz3true:
+                    if TOVARKOL[pred] ==0:
+                        for i in mapmagaz2:
                             for j in i:
                                 print(j, end=' ')
                             print('')
-                        ENEMY['Money'] -= TOVAR[pred]
-                        if slosnot == 1:
-                            if pred == 'меч':
-                                inventory['меч'] = 70
-                            if pred == 'щит':
-                                inventory['щит'] = 70
-                        if slosnot == 2:
-                            if pred == 'меч':
-                                inventory['меч'] = 55
-                            if pred == 'щит':
-                                inventory['щит'] = 55
-                        if slosnot == 3:
-                            if pred == 'меч':
-                                inventory['меч'] = 30
-                            if pred == 'щит':
-                                inventory['щит'] = 52
-                        if slosnot == 4:
-                            if pred == 'меч':
-                                inventory['меч'] = 20
-                            if pred == 'щит':
-                                inventory['щит'] = 20
-                        print(inventory)
+                        time.sleep(2)
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                        if inventory['Money'] > TOVAR[pred]:
+                            for i in mapmagaz3true:
+                                for j in i:
+                                    print(j, end=' ')
+                                print('')
+                            inventory['Money'] -= TOVAR[pred]
+                            TOVARKOL[pred] -= 1
+                            print(TOVARKOL[pred])
+                            if slosnot == 1:
+                                if pred == 'меч':
+                                    inventory['меч'] = 70
+                                if pred == 'щит':
+                                    inventory['щит'] = 70
+                            if slosnot == 2:
+                                if pred == 'меч':
+                                    inventory['меч'] = 55
+                                if pred == 'щит':
+                                    inventory['щит'] = 55
+                            if slosnot == 3:
+                                if pred == 'меч':
+                                    inventory['меч'] = 30
+                                if pred == 'щит':
+                                    inventory['щит'] = 52
+                            if slosnot == 4:
+                                if pred == 'меч':
+                                    inventory['меч'] = 20
+                                if pred == 'щит':
+                                    inventory['щит'] = 20
+                            print(inventory)
+                        else:
+                            for i in mapmagaz3false:
+                                for j in i:
+                                    print(j, end=' ')
+                                print('')
+                        time.sleep(1)
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                        for i in mapmagaz2:
+                            for j in i:
+                                print(j, end=' ')
+                            print('')
+                        time.sleep(2)
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                        for i in mapmagaz1:
+                            for j in i:
+                                print(j, end=' ')
+                            print('')
+                        time.sleep(2)
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                        for i in mapmagaz1:
+                            for j in i:
+                                print(j, end=' ')
+                            print('')
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     else:
-                        for i in mapmagaz3false:
-                            for j in i:
-                                print(j, end=' ')
-                            print('')
-                    time.sleep(1)
-                    print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-                    for i in mapmagaz2:
-                        for j in i:
-                            print(j, end=' ')
-                        print('')
-                    time.sleep(2)
-                    print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-                    for i in mapmagaz1:
-                        for j in i:
-                            print(j, end=' ')
-                        print('')
-                    time.sleep(2)
-                    print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-                    for i in mapmagaz1:
-                        for j in i:
-                            print(j, end=' ')
-                        print('')
-                    print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                        print('У меня больше нет данного товара')
+                        
     rp = random.randint(1, 4)
     if rp == 1:
         pole = [['💎', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
@@ -752,16 +764,21 @@ while loop == 1:
                     rg = 0
                 else:
                     if run == 0:
+                        rm= 0
                         if slosnot == 1:
-                            inventory["Money"] += random.randint(30,35)
+                            rm = random.randint(30,35)
+                            inventory["Money"] += rm
                         if slosnot == 2:
-                            inventory["Money"] += random.randint(20,25)
+                            rm = random.randint(20,25)
+                            inventory["Money"] += rm
                         if slosnot == 3:
-                            inventory["Money"] += random.randint(15,20)
+                            rm = random.randint(15,20)
+                            inventory["Money"] += rm
                         if slosnot == 4:
-                            inventory["Money"] += random.randint(10,18)
+                            rm =random.randint(10,18)
+                            inventory["Money"] += rm
                     print("Противник умер, ПОБЕДА🎉🎉🎉")
-                    print('Вы получили',inventory['Money'],'монет')
+                    print('Вы получили',rm,'монет')
                     if slosnot == 1:
                         ProtScet = random.randint(5, 8)
                     if slosnot == 2:
