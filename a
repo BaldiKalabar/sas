@@ -42,7 +42,7 @@ inventory = {
     "Зелье здоровья": random.randint(1, 5),
     "меч":0,
     "щит":0,
-    'Money': 1110
+    'Money': 0
 }
 ENEMY = {
     "Health": 100,
@@ -80,7 +80,7 @@ TOVARKOL = {
                 'зелье здоровья': 50
             }
 pred = ''
-magaz = 1
+magaz = 0
 while loop == 1:
     if magaz == 1:
         for i in range(random.randint(2, 3)):
