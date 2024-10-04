@@ -28,8 +28,6 @@ if skin_pers == 6:
     skin_pers = '🤡'
 if skin_pers == 7:
     skin_pers = '😼'
-print("Рекомендуеться играть на английской раскладке")
-time.sleep(2)
 smerti = 0
 HERO = {
     "name": name
@@ -76,6 +74,11 @@ HERO = {
     '3': 100 + CHRS["Выносливость"] * 1,
     "И": inventory,
 }
+TOVARKOL = {
+                'меч': 1,
+                'щит': 1,
+                'зелье здоровья': 50
+            }
 pred = ''
 magaz = 1
 while loop == 1:
@@ -100,11 +103,7 @@ while loop == 1:
                 'щит': 100,
                 'зелье здоровья':20
             }
-            TOVARKOL = {
-                'меч': 1,
-                'щит': 1,
-                'зелье здоровья': 2000
-            }
+
             magazbye = 0
             mapmagaz = [
                         ['🧱', '🔳', '🧱', '🧱', '🧱', '🧱', '🧱', '🔳', '🧱', '🧱'],
@@ -188,7 +187,7 @@ while loop == 1:
                     time.sleep(2)
                     mapgame = 1
                 else:
-                    if TOVARKOL[pred] ==0:
+                    if TOVARKOL[pred] !=0:
                         for i in mapmagaz2:
                             for j in i:
                                 print(j, end=' ')
@@ -201,8 +200,7 @@ while loop == 1:
                                     print(j, end=' ')
                                 print('')
                             inventory['Money'] -= TOVAR[pred]
-                            TOVARKOL[pred] -= 1
-                            print(TOVARKOL[pred])
+                            TOVARKOL[pred] = TOVARKOL[pred] - 1
                             if slosnot == 1:
                                 if pred == 'меч':
                                     inventory['меч'] = 70
@@ -223,7 +221,7 @@ while loop == 1:
                                     inventory['меч'] = 20
                                 if pred == 'щит':
                                     inventory['щит'] = 20
-                            print(inventory)
+                            
                         else:
                             for i in mapmagaz3false:
                                 for j in i:
@@ -250,7 +248,7 @@ while loop == 1:
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     else:
                         print('У меня больше нет данного товара')
-                        
+
     rp = random.randint(1, 4)
     if rp == 1:
         pole = [['💎', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱', '🧱'],
