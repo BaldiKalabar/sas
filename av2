@@ -63,7 +63,7 @@ d = ""
 loop = 1
 # Карта
 esda = 0
-win = 1
+win = 0
 pobeda = 0
 Endwin = 0
 fight = 0
