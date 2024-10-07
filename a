@@ -43,9 +43,11 @@ inventory = {
     "меч": 0,
     "щит": 0,
     'Money': 0,
-    'ключ': 0
+    'ключ':0
 }
+NAME='Противник'
 ENEMY = {
+    "NAME": NAME,
     "Health": 100,
     "Hand": 100,
     "Зелья": 1
@@ -64,8 +66,8 @@ esda = 0
 win = 1
 pobeda = 0
 Endwin = 0
-fight = 0
-mapgame = 1
+fight = 1
+mapgame = 0
 rg = 0
 run = 0
 obxpole = 0
@@ -89,7 +91,7 @@ TOVAR = {
 }
 twopred = ''
 pred = ''
-magaz = 1
+magaz = 0
 while loop == 1:
     if magaz == 1:
         for i in range(random.randint(0, 1)):
@@ -194,19 +196,19 @@ while loop == 1:
                 print('')
             print("У вас", inventory['Money'], "монет")
             pred = input(
-                'Что Хотите купить? (Что бы выйти напиши выход)\nДля разговорора нажми р-h \nЧто бы посмотреть товар в магазине нажми м-v ').lower()
+                'Что хотите купить? (Чтобы выйти, напиши "выход")\n Для разговора нажми р-r. \nЧтобы посмотреть товар в магазине, нажми м-v.').lower()
             print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
             if pred != 'выход' and pred != 'h' and pred != 'р' and pred != 'м' and pred != 'v':
                 print("у меня нет данного предмета")
             else:
                 while pred == 'h' or pred == 'р':
-                    print('Я [УДАЛЕНО] о чем ты хочеш поговорить?')
+                    print('Я [УДАЛЕНО] О чём ты хочешь поговорить?')
                     for i in mapmagazrazgovorst:
                         for j in i:
                             print(j, end=' ')
                         print('')
                     twopred = int(input(
-                        "1-Кто ты вообще такой? \n2-Зачем ты открыл этот магазин? \n3-Как тебя зовут? \n4-О лаберинте \n5-О ключе-выходе\n6-Выйти"))
+                        "1-Кто ты вообще такой? \n2-Зачем ты открыл этот магазин? \n3-Как тебя зовут? \n4-О лабиринте \n5-О ключе-выходе\n6-Выйти"))
                     print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     while twopred != 1 and twopred != 2 and twopred != 3 and twopred != 4 and twopred != 5 and twopred != 6:
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
@@ -216,10 +218,10 @@ while loop == 1:
                                 print(j, end=' ')
                             print('')
                         twopred = int(input(
-                            "1-Кто ты вообще такой? \n2-Зачем ты открыл этот магазин? \n3-Как тебя зовут? \n4-О лаберинте \n5-О ключе-выходе\n6-Выйти"))
+                            "1-Кто ты вообще такой? \n2-Зачем ты открыл этот магазин? \n3-Как тебя зовут? \n4-О лабиринте  \n5-О ключе-выходе\n6-Выйти"))
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     if twopred == 1:
-                        print("Я сгусток тьмы, от меня ничего не осталось и я ничего не помню и я не винват")
+                        print("Я сгусток тьмы. От меня ничего не осталось. И я ничего не помню. И я не Виноват.")
                         for i in mapmagazrazgovorst2:
                             for j in i:
                                 print(j, end=' ')
@@ -227,7 +229,7 @@ while loop == 1:
                         time.sleep(4)
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     if twopred == 2:
-                        print('Что бы... Вспомнить кто я, собирая монеты я что то но вспоминаю')
+                        print('Чтобы... вспомнить, кто я, собирая монеты, я что-то не вспоминаю')
                         for i in mapmagazrazgovorst2:
                             for j in i:
                                 print(j, end=' ')
@@ -244,7 +246,7 @@ while loop == 1:
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     if twopred == 4:
                         print(
-                            'Лаберинт это как место чистилищя, ты должен пройти нужное количество кругов что бы выйти')
+                            'Лабиринт - это как место чистилища, ты должен пройти нужное количество кругов, чтобы выйти.')
                         for i in mapmagazrazgovorst2:
                             for j in i:
                                 print(j, end=' ')
@@ -253,8 +255,8 @@ while loop == 1:
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     if twopred == 5:
                         print(
-                            'А ты о той безделушке которую я недавно нашел, ну она мне не нужно так как я не в силе драться поэтому могу её тебе продать за твою жизнь или 1000 монет')
-                        TOVAR['ключ'] = 1000
+                            'А ты о той безделушке которую я недавно нашел, ну она мне не нужна так как я не в силе драться поэтому могу её тебе продать за твою жизнь или 500 монет')
+                        TOVAR['ключ'] = 500
 
                         for i in mapmagazrazgovorst2:
                             for j in i:
@@ -474,8 +476,9 @@ while loop == 1:
                             cordi2 = 9
                             pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
@@ -486,8 +489,9 @@ while loop == 1:
                             cordi2 = 5
                             pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
@@ -498,8 +502,9 @@ while loop == 1:
                             cordi2 = 5
                             pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
@@ -510,8 +515,9 @@ while loop == 1:
                             cordi2 = 1
                             pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole4[cordi1][cordi2] = skin_pers
                 if esda == "w" or esda == 'ц':
                     rg += 1
@@ -524,8 +530,9 @@ while loop == 1:
                             cordi2 = 9
                             pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
@@ -536,8 +543,9 @@ while loop == 1:
                             cordi2 = 5
                             pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
@@ -548,8 +556,9 @@ while loop == 1:
                             cordi2 = 9
                             pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
@@ -560,8 +569,9 @@ while loop == 1:
                             cordi2 = 1
                             pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole4[cordi1][cordi2] = skin_pers
                 if esda == "d" or esda == 'в':
                     rg += 1
@@ -574,8 +584,9 @@ while loop == 1:
                             cordi2 = 9
                             pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
@@ -586,8 +597,9 @@ while loop == 1:
                             cordi2 = 5
                             pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
@@ -598,8 +610,9 @@ while loop == 1:
                             cordi2 = 5
                             pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
@@ -610,8 +623,9 @@ while loop == 1:
                             cordi2 = 1
                             pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole4[cordi1][cordi2] = skin_pers
                 if esda == "a" or esda == 'ф':
                     rg += 1
@@ -624,8 +638,9 @@ while loop == 1:
                             cordi2 = 9
                             pole[cordi1][cordi2] = skin_pers
                         if pole[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole[cordi1][cordi2] = skin_pers
                     if rp == 2:
                         pole2[cordi1][cordi2] = '🟫'
@@ -636,8 +651,9 @@ while loop == 1:
                             cordi2 = 5
                             pole2[cordi1][cordi2] = skin_pers
                         if pole2[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole2[cordi1][cordi2] = skin_pers
                     if rp == 3:
                         pole3[cordi1][cordi2] = '🟫'
@@ -648,8 +664,9 @@ while loop == 1:
                             cordi2 = 5
                             pole3[cordi1][cordi2] = skin_pers
                         if pole3[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
                         pole4[cordi1][cordi2] = '🟫'
@@ -660,35 +677,48 @@ while loop == 1:
                             cordi2 = 1
                             pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
-                            Endwin = Endwin + 1
+                            print("ERROR")
                             mapgame = 0
+                            magaz = 1
                         pole4[cordi1][cordi2] = skin_pers
                 if rg == ProtScet:
                     mapgame = 0
                     fight = 1
         while fight == 1:
+            HPBoost = 0
+            FightBooost = 0
+            slboost = 0
+            if inventory['ключ'] == 1:
+                NAME = 'Босс'
+                HPBoost = 20
+                FightBooost = 30
+                slboost = random.randint(1,5)
             # Игра на битве
             if slosnot == 1:
-                ENEMY['Health'] = random.randint(400, 450)
-                ENEMY['Hand'] = random.randint(50, 70)
+                ENEMY['Health'] = random.randint(400, 450) + HPBoost
+                ENEMY['Hand'] = random.randint(50, 70) + FightBooost
+                ENEMY['Зелья'] = random.randint(1,4) + slboost
                 CHRS['Сила'] = random.randint(100, 150)
                 CHRS['Усталость'] = random.randint(10, 20)
                 CHRS['Выносливость'] = random.randint(125, 150)
             if slosnot == 2:
-                ENEMY['Health'] = random.randint(200, 220)
-                ENEMY['Hand'] = random.randint(80, 100)
+                ENEMY['Health'] = random.randint(200, 220)+ HPBoost
+                ENEMY['Hand'] = random.randint(80, 100)+ FightBooost
+                ENEMY['Зелья'] = random.randint(1, 4) + slboost
                 CHRS['Сила'] = random.randint(70, 100)
                 CHRS['Усталость'] = random.randint(7, 10)
                 CHRS['Выносливость'] = random.randint(125, 130)
             if slosnot == 3:
-                ENEMY['Health'] = random.randint(190, 220)
-                ENEMY['Hand'] = random.randint(100, 130)
+                ENEMY['Health'] = random.randint(190, 220)+ HPBoost
+                ENEMY['Hand'] = random.randint(100, 130)+ FightBooost
+                ENEMY['Зелья'] = random.randint(1, 4) + slboost
                 CHRS['Сила'] = random.randint(60, 90)
                 CHRS['Усталость'] = random.randint(5, 8)
                 CHRS['Выносливость'] = random.randint(90, 100)
             if slosnot == 4:
-                ENEMY['Health'] = random.randint(250, 300)
-                ENEMY['Hand'] = random.randint(130, 180)
+                ENEMY['Health'] = random.randint(250, 300)+ HPBoost
+                ENEMY['Hand'] = random.randint(130, 180)+ FightBooost
+                ENEMY['Зелья'] = random.randint(1, 4) + slboost
                 CHRS['Сила'] = random.randint(50, 90)
                 CHRS['Усталость'] = random.randint(5, 8)
                 CHRS['Выносливость'] = random.randint(50, 80)
@@ -742,16 +772,25 @@ while loop == 1:
             Enemy_bar_health_icon = '❤'
             Enemy_bar_health_bar = ENEMY['Health'] * Enemy_bar_health_icon
             print(
-                f'-----> Здоровье {name} \n{name} - {Hero_health_bar}  \n------> Здоровье противника \nENEMY - {Enemy_bar_health_bar}')
+                f'-----> Здоровье {name} \n{name} - {Hero_health_bar}  \n------> Здоровье {NAME} \n{NAME} - {Enemy_bar_health_bar}')
             while HERO["3"] > 0 and ENEMY['Health'] > 0:
                 print("Количество атак", CHRS["Усталость"])
-                d = input(
-                    "-----> ⚔️Нажмите для атаки (a-ф)\n-----> 🧪Для использования зельки (s-ы) \n-----> 🔥Что бы восстановить силы (d-в) \n-----> 🏃‍➡️Что бы сбежать PRESS (F-а) ")
-                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-                while d != "a" and d != "s" and d != "d" and d != "f" and d != "ф" and d != "ы" and d != "в" and d != "а":
+                if NAME == 'Босс':
+                    d = input(
+                        "-----> ⚔️Нажмите для атаки (a-ф)\n-----> 🧪Для использования зельки (s-ы) \n-----> 🔥Что бы восстановить силы (d-в) \n-----> 🏃‍➡️Что бы сбежать ERROR ")
+                    print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                    while d != "a" and d != "s" and d != "d" and d != "f" and d != "ф" and d != "ы" and d != "в" and d != "а":
+                        d = input(
+                            "-----> ⚔️Нажмите для атаки (a-ф)\n-----> 🧪Для использования зельки (s-ы) \n-----> 🔥Что бы восстановить силы (d-в) \n-----> 🏃‍➡️Что бы сбежать ERROR ")
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                else:
                     d = input(
                         "-----> ⚔️Нажмите для атаки (a-ф)\n-----> 🧪Для использования зельки (s-ы) \n-----> 🔥Что бы восстановить силы (d-в) \n-----> 🏃‍➡️Что бы сбежать PRESS (F-а) ")
                     print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                    while d != "a" and d != "s" and d != "d" and d != "f" and d != "ф" and d != "ы" and d != "в" and d != "а":
+                        d = input(
+                            "-----> ⚔️Нажмите для атаки (a-ф)\n-----> 🧪Для использования зельки (s-ы) \n-----> 🔥Что бы восстановить силы (d-в) \n-----> 🏃‍➡️Что бы сбежать PRESS (F-а) ")
+                        print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                 if d == 'a' or d == 'ф':
                     if CHRS['Усталость'] != 0:
                         CHRS['Усталость'] -= 1
@@ -759,7 +798,7 @@ while loop == 1:
                         print('⚔️Критический урон составил ', crit)
                         ENEMY["Health"] = ENEMY["Health"] - HERO["Базовый урон"] - crit - inventory['меч']
                         Enemy_bar_health_bar = ENEMY['Health'] * Enemy_bar_health_icon
-                        print(f'----->⚔️Противик получил урон \nENEMY - {Enemy_bar_health_bar}')
+                        print(f'----->⚔️{NAME} получил урон \n{NAME} - {Enemy_bar_health_bar}')
                         if random.randint(1, 10) in [1, 2, 3, 4, 5]:
                             critprotiv = random.randint(0, 20)
                             print(f"----->⚔️{name} получил урон")
@@ -771,20 +810,23 @@ while loop == 1:
                     else:
                         print("Вы устали, вам стоит отдохнуть")
                 if d == 'f' or d == 'а':
-                    if CHRS['Усталость'] > 0:
-                        if random.randint(1, 15) in [1]:
-                            print("Вы сбежали")
-                            run = 1
-                            ENEMY["Health"] = -1000000
-                        else:
-                            CHRS['Усталость'] -= 1
-                            HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] - random.randint(30, 50) + \
-                                        inventory['щит'] + 10
-                            print("⚔️Враг не отпускает вас")
-                            Hero_health_bar = int(HERO['3'] // 10) * health_icon
-                            print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
+                    if NAME == 'Босс':
+                        print('ERROR')
                     else:
-                        print("Вы устали, вам стоит отдохнуть")
+                        if CHRS['Усталость'] > 0:
+                            if random.randint(1, 15) in [1]:
+                                print("Вы сбежали")
+                                run = 1
+                                ENEMY["Health"] = -1000000
+                            else:
+                                CHRS['Усталость'] -= 1
+                                HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] - random.randint(30, 50) + \
+                                            inventory['щит'] + 10
+                                print(f"⚔️{NAME} не отпускает вас")
+                                Hero_health_bar = int(HERO['3'] // 10) * health_icon
+                                print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
+                        else:
+                            print("Вы устали, вам стоит отдохнуть")
                 if d == 's' or d == 'ы':
                     if inventory["Зелье здоровья"] > 0:
                         inventory['Зелье здоровья'] -= 1
@@ -794,25 +836,25 @@ while loop == 1:
                         print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
                         if random.randint(1, 6) in [1, 2, 3, 6]:
                             HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + inventory['щит'] + 10
-                            print("⚔️Враг воспользоволся моментом и нанес урон")
+                            print(f"⚔️{NAME} воспользоволся моментом и нанес урон")
                             Hero_health_bar = int(HERO['3'] // 10) * health_icon
                             print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
                     else:
                         print("-----> Зельки больше нет")
                         if random.randint(1, 6) in [1, 2, 3, 6]:
                             HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 40
-                            print("⚔️Враг воспользоволся моментом и нанес урон")
+                            print("⚔️{NAME} воспользоволся моментом и нанес урон")
                             Hero_health_bar = int(HERO['3'] // 10) * health_icon
                             print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
                 if d == 'd' or d == 'в':
                     if random.randint(1, 10) in [1, 2, 3, 4, 5, 6, 7, 8]:
                         p = random.randint(1, 13)
                         if p in [1]:
-                            print(HERO['name'], "агресивно смотрит на противника")
+                            print(HERO['name'], "агресивно смотрит на ", ENEMY['NAME'])
                         if p in [2]:
-                            print(HERO['name'], "ничего не делает как и Противик")
+                            print(HERO['name'], "ничего не делает как и ",ENEMY['NAME'])
                         if p in [3]:
-                            print(HERO['name'], "думает о великом и забывает про битву, как и Противник")
+                            print(HERO['name'], "думает о великом и забывает про битву, как и ",ENEMY['NAME'])
                         if p in [4]:
                             print(HERO['name'], "спрятался, техническое отступление")
                         if p in [5]:
@@ -820,14 +862,14 @@ while loop == 1:
                         if p in [6]:
                             print("Вы изучаете друг друга для того что бы нанести более сильный удар")
                         if p in [7]:
-                            print("Вы пытаетесь украть зелья противника но у вас это не получается")
+                            print(f"Вы пытаетесь украть зелья {NAME} но у вас это не получается")
                         if p in [8]:
                             print("Вы устали но продолжаете бороться")
                         if p in [9]:
                             print("Вы прячитесь что бы отдохнуть от этой битвы , теперь вы можете нанести удар")
                         if p in [10]:
                             print(
-                                "Вы отвлекаете противника максимально долго что бы востоновить силы для следущего удара")
+                                f"Вы отвлекаете {NAME} максимально долго что бы востоновить силы для следущего удара")
                         if p in [11]:
                             print("Вы выпустили пауков, откуда они у вас? Неважно вы можете атаковать ")
                         if p in [12]:
@@ -840,7 +882,7 @@ while loop == 1:
                             inventory["Зелье здоровья"] += random.randint(1, 2)
                     else:
                         HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 10 + inventory['щит']
-                        print("⚔️Враг воспользоволся моментом и нанес урон")
+                        print(f"⚔️{NAME} воспользоволся моментом и нанес урон")
                         Hero_health_bar = int(HERO['3'] // 10) * health_icon
                         print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
                 if ENEMY["Health"] < 50 and run != 1:
@@ -848,12 +890,12 @@ while loop == 1:
                         ENEMY["Health"] += random.randint(1, 60)
                         Enemy_bar_health_bar = ENEMY['Health'] * Enemy_bar_health_icon
                         ENEMY["Зелья"] -= 1
-                        print(f'----->🧪 Противик вылечелся и теперь у него  \nENEMY - {Enemy_bar_health_bar}')
+                        print(f'----->🧪 {NAME} вылечелся и теперь у него  \n{NAME} - {Enemy_bar_health_bar}')
                         if random.randint(1, 6) in [1, 2, 3, 6]:
                             print(f"⚔️{name} воспользоволся моментом и нанес урон")
                             ENEMY["Health"] = ENEMY["Health"] - HERO["Базовый урон"] - inventory['меч']
                             Enemy_bar_health_bar = ENEMY['Health'] * Enemy_bar_health_icon
-                            print(f'-----> Здоровье ENEMY \nENEMY - {Enemy_bar_health_bar}')
+                            print(f'-----> Здоровье {NAME} \n{NAME} - {Enemy_bar_health_bar}')
                     else:
                         pass
             if HERO["3"] < 0 and ENEMY["Health"] < 0:
@@ -906,23 +948,31 @@ while loop == 1:
                         if slosnot == 4:
                             rm = random.randint(10, 18)
                             inventory["Money"] += rm
-                    print("Противник умер, ПОБЕДА🎉🎉🎉")
-                    print('Вы получили', rm, 'монет')
-                    if slosnot == 1:
-                        ProtScet = random.randint(5, 8)
-                    if slosnot == 2:
-                        ProtScet = random.randint(4, 6)
-                    if slosnot == 3:
-                        ProtScet = random.randint(3, 5)
-                    if slosnot == 4:
-                        ProtScet = random.randint(2, 4)
-                    fight = 0
-                    mapgame = 1
-                    time.sleep(4)
-                    print("Возрашаемся на карту...")
-                    time.sleep(3)
-                    rg = 0
+                    print(f"{NAME} умер, ПОБЕДА🎉🎉🎉")
+                    if NAME !='Босс':
 
+                        print('Вы получили', rm, 'монет')
+                        if slosnot == 1:
+                            ProtScet = random.randint(5, 8)
+                        if slosnot == 2:
+                            ProtScet = random.randint(4, 6)
+                        if slosnot == 3:
+                            ProtScet = random.randint(3, 5)
+                        if slosnot == 4:
+                            ProtScet = random.randint(2, 4)
+                        fight = 0
+                        mapgame = 1
+
+                        time.sleep(4)
+                        print("Возрашаемся на карту...")
+                        time.sleep(3)
+                        rg = 0
+                    else:
+                        print('Вы получили, свободу')
+                        time.sleep(5)
+                        win = 1
+                        fight = 0
+                        exit()
     if smerti == 1:
         loop = input("Ты умер... Ты это знаеш? Так вот, хочешь заного начать? \n (ДА) --- (НЕТ)").lower()
         win = 0
@@ -941,6 +991,7 @@ while loop == 1:
         win = 0
         rg = 0
         magaz = 1
+        NAME = 'Противник'
     if loop == 'нет':
         loop = 0
         mapgame = 0
