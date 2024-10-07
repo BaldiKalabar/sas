@@ -63,11 +63,11 @@ d = ""
 loop = 1
 # Карта
 esda = 0
-win = 1
+win = 0
 pobeda = 0
 Endwin = 0
-fight = 1
-mapgame = 0
+fight = 0
+mapgame = 1
 rg = 0
 run = 0
 obxpole = 0
