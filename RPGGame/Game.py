@@ -3,14 +3,21 @@ import random, time,pygame
 from tkinter import *
 pygame.init()
 #Музыка главного экрана
-smagagz=pygame.mixer.Sound("WTF.ogg")
+smagagz=pygame.mixer.Sound("StartFonMus.ogg")
 smaze=pygame.mixer.Sound("pec.ogg")
 shagi=pygame.mixer.Sound("shagi.ogg")
+sfonfight=pygame.mixer.Sound("Fonpvp.ogg")
+sfonfight2=pygame.mixer.Sound("Fonpvp2.ogg")
+sfonfight3=pygame.mixer.Sound("Fonpvp3.ogg")
+sbosspvp=pygame.mixer.Sound("BossPvP.ogg")
+sstartfonmusk=pygame.mixer.Sound("WTF.ogg")
+sstartfonmusk.play(1,0,0)
 name = input("Введите Имя")
 time.sleep(1)
-slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆 \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
+slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆(Рекомендуеться) \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
 while slosnot!= 1 and slosnot != 2 and slosnot != 3 and slosnot != 4:
-    slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆 \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
+    slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆(Рекомендуеться) \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
+
 time.sleep(1)
 skin_pers = int(input("Выберете себе скин персонажа \n 1 - 😐 \n 2 - 👹 \n 3 - 😀 \n 4 - 😎 \n 5 - 🤗 \n 6 - 🤡 \n 7 - 😼"))
 while skin_pers != 1 and skin_pers != 2 and skin_pers != 3 and skin_pers != 4 and skin_pers != 5 and skin_pers != 6 and skin_pers != 7:
@@ -94,8 +101,10 @@ TOVAR = {
 twopred = ''
 pred = ''
 magaz = 1
+sstartfonmusk.stop()
 while loop == 1:
     if magaz == 1:
+        smagagz.play(loops=1, maxtime=0, fade_ms=0)
         for i in range(random.randint(0, 1)):
             print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
             print("Вы заходите в Магазин.")
@@ -108,7 +117,7 @@ while loop == 1:
             time.sleep(1)
 
         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-        smagagz.play(loops=1, maxtime=0, fade_ms=0)
+
         print("Добро Пожаловать в Магазин Теней")
         time.sleep(1)
         pred = ''
@@ -384,7 +393,7 @@ while loop == 1:
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                     else:
                         print('У меня больше нет данного товара')
-            smagagz.stop()
+
             print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
     rp = random.randint(1, 4)
     if rp == 1:
@@ -452,7 +461,7 @@ while loop == 1:
         cordi2 = 1
         obxpole = pole4
     while Endwin == 0 and smerti == 0:
-
+        smagagz.stop()
         if slosnot == 1:
             ProtScet = random.randint(5, 8)
         if slosnot == 2:
@@ -732,14 +741,25 @@ while loop == 1:
                     fight = 1
         while fight == 1:
             smaze.stop()
+
             HPBoost = 0
             FightBooost = 0
             slboost = 0
             if inventory['ключ'] == 1:
+                sfonfight.stop()
                 NAME = 'Босс'
-                HPBoost = 130
-                FightBooost = 80
+                HPBoost = 100
+                FightBooost = 30
                 slboost = random.randint(3,5)
+                sbosspvp.play(1,0,0)
+            else:
+                musicl = random.randint(1, 3)
+                if musicl == 1:
+                    sfonfight.play(1, 0, 0)
+                if musicl == 2:
+                    sfonfight2.play(1, 0, 0)
+                if musicl == 3:
+                    sfonfight3.play(1, 0, 0)
             # Игра на битве
             if slosnot == 1:
                 ENEMY['Health'] = random.randint(400, 450) + HPBoost
@@ -881,7 +901,7 @@ while loop == 1:
                         print(f"-----> {name} вылечелся 🧪")
                         Hero_health_bar = int(HERO['3'] // 10) * health_icon
                         print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
-                        if random.randint(1, 6) in [1, 2, 3, 6]:
+                        if random.randint(1, 6) in [1, 2]:
                             HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + inventory['щит'] + 10
                             print(f"⚔️{NAME} воспользоволся моментом и нанес урон")
                             Hero_health_bar = int(HERO['3'] // 10) * health_icon
@@ -930,7 +950,7 @@ while loop == 1:
                     else:
                         HERO["3"] = HERO["3"] - ENEMY["Hand"] + inventory["Броня"] + 10 + inventory['щит'] - FightBooost
                         print(f"⚔️{NAME} воспользоволся моментом и нанес урон")
-                        Hero_health_bar = int(HERO['3'] // 10) * health_icon +  20
+                        Hero_health_bar = int(HERO['3'] // 10) * health_icon
                         print(f'-----> Здоровье {name} \n{name}-{Hero_health_bar}')
                 if ENEMY["Health"] < 80 and run != 1:
                     if ENEMY["Зелья"] > 0:
@@ -978,7 +998,9 @@ while loop == 1:
                         ProtScet = random.randint(2, 4)
                     fight = 0
                     mapgame = 1
-
+                    sfonfight.stop()
+                    sfonfight2.stop()
+                    sfonfight3.stop()
                     time.sleep(4)
                     print("Возрашаемся на карту...")
                     time.sleep(3)
@@ -1011,6 +1033,7 @@ while loop == 1:
                     if wn == 5:
                         print('ПОБЕДА🎉🎉🎉')
                     if NAME !='Босс':
+
                         print('Вы получили', rm, 'монет')
                         if slosnot == 1:
                             ProtScet = random.randint(5, 8)
@@ -1026,19 +1049,29 @@ while loop == 1:
                         print("Возрашаемся на карту...")
                         time.sleep(3)
                         rg = 0
+                        sfonfight.stop()
+                        sfonfight2.stop()
+                        sfonfight3.stop()
                     else:
+                        sbosspvp.stop()
                         print('Вы получили, свободу')
                         time.sleep(5)
                         win = 1
                         fight = 0
+
                         Endwin = 1
     if smerti == 1:
+        sfonfight.stop()
+        sfonfight2.stop()
+        sfonfight3.stop()
+        sbosspvp.stop()
         loop = input("Ты умер... Ты это знаеш? Так вот, хочешь заного начать? \n (ДА) --- (НЕТ)").lower()
         win = 0
         while loop != "ДА" and loop != 'Да' and loop != 'да' and loop != 'нет' and loop != 'НЕТ' and loop != 'Нет':
             loop = input("Ты умер... Ты это знаеш? Так вот, хочешь заного начать? \n (ДА) --- (НЕТ)").lower()
             win = 0
     if win == 1:
+        sbosspvp.stop()
         loop = input("Ты победил, но готов ты начать ещё  раз? \n (ДА) --- (НЕТ)").lower()
         while loop != "ДА" and loop != 'Да' and loop != 'да' and loop != 'нет' and loop != 'НЕТ' and loop != 'Нет':
             loop = input("Ты победил, но готов ты начать ещё  раз? \n (ДА) --- (НЕТ)").lower()
