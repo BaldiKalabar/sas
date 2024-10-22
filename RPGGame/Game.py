@@ -2,8 +2,9 @@
 import random, time,pygame
 from tkinter import *
 pygame.init()
-#Музыка главного экрана
+#Музыка
 smagagz=pygame.mixer.Sound("StartFonMus.ogg")
+smagagz2=pygame.mixer.Sound("Fonmagaz2.ogg")
 smaze=pygame.mixer.Sound("pec.ogg")
 shagi=pygame.mixer.Sound("shagi.ogg")
 sfonfight=pygame.mixer.Sound("Fonpvp.ogg")
@@ -17,7 +18,6 @@ time.sleep(1)
 slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆(Рекомендуеться) \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
 while slosnot!= 1 and slosnot != 2 and slosnot != 3 and slosnot != 4:
     slosnot = int(input("Выберете уровень сложности  \n 1 - Простой 😆(Рекомендуеться) \n 2 - Средний ☺️ \n 3 - Сложный 🤬 \n 4 - БЕЗУМНЫЙ 😈 "))
-
 time.sleep(1)
 skin_pers = int(input("Выберете себе скин персонажа \n 1 - 😐 \n 2 - 👹 \n 3 - 😀 \n 4 - 😎 \n 5 - 🤗 \n 6 - 🤡 \n 7 - 😼"))
 while skin_pers != 1 and skin_pers != 2 and skin_pers != 3 and skin_pers != 4 and skin_pers != 5 and skin_pers != 6 and skin_pers != 7:
@@ -93,33 +93,48 @@ TOVARKOL = {
 }
 
 TOVAR = {
-    'меч': 50,
-    'щит': 50,
+    'меч': 150,
+    'щит': 150,
     'зелье здоровья': 20,
     'ключ': 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
 }
 twopred = ''
 pred = ''
 magaz = 1
+firstgomagaz=0
 sstartfonmusk.stop()
 while loop == 1:
     if magaz == 1:
-        smagagz.play(loops=1, maxtime=0, fade_ms=0)
-        for i in range(random.randint(0, 1)):
-            print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-            print("Вы заходите в Магазин.")
-            time.sleep(1)
-            print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-            print("Вы заходите в Магазин..")
-            time.sleep(1)
-            print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
-            print("Вы заходите в Магазин...")
-            time.sleep(1)
+        if firstgomagaz == 1:
+            smagagz2.play(loops=1, maxtime=0, fade_ms=0)
+            for i in range(2):
+
+                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                print("Вы заходите в Магазин.")
+                time.sleep(1)
+                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                print("Вы заходите в Магазин..")
+                time.sleep(1)
+                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                print("Вы заходите в Магазин...")
+        if firstgomagaz == 0:
+            smagagz.play(loops=1, maxtime=0, fade_ms=0)
+            for i in range(8):
+                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                print("Вы заходите в Магазин.")
+                time.sleep(1)
+                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                print("Вы заходите в Магазин..")
+                time.sleep(1)
+                print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
+                print("Вы заходите в Магазин...")
+                time.sleep(0.5)
+            firstgomagaz += 1
+
 
         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
 
         print("Добро Пожаловать в Магазин Теней")
-        time.sleep(1)
         pred = ''
         while pred != "выход":
 
@@ -292,7 +307,7 @@ while loop == 1:
                     print('Зелье здоровья за', TOVAR['зелье здоровья'], 'монет')
                     print('Ключ за', TOVAR['ключ'], 'монет')
                     twopred = input('Так что хочеш купить?').lower()
-                    while twopred != 'назад' and twopred != 'меч' and twopred != 'щит ' and twopred != 'зелье здоровья' and twopred != 'ключ':
+                    while twopred != 'назад' and twopred != 'меч' and twopred != 'щит' and twopred != 'зелье здоровья' and twopred != 'ключ':
                         print(heiqght * '\n', f'{symb_load[count]} - Загрузка', heiqght * '\n')
                         for i in mapmagazrazgovorst:
                             for j in i:
@@ -329,7 +344,7 @@ while loop == 1:
                     mapgame = 1
                     magaz = 0
                     Endwin = 0
-                if pred == 'меч' or pred == 'зелье здоровья' or pred == 'щит' or pred == 'ключ':
+                if pred == 'щит' or pred == 'зелье здоровья' or pred == 'меч' or pred == 'ключ':
                     if TOVARKOL[pred] != 0:
                         for i in mapmagaz2:
                             for j in i:
@@ -347,9 +362,9 @@ while loop == 1:
 
                             if slosnot == 1:
                                 if pred == 'меч':
-                                    inventory['меч'] = 70
+                                    inventory['меч'] = 20
                                 if pred == 'щит':
-                                    inventory['щит'] = 70
+                                    inventory['щит'] = 30
                             if slosnot == 2:
                                 if pred == 'меч':
                                     inventory['меч'] = 55
@@ -462,6 +477,8 @@ while loop == 1:
         obxpole = pole4
     while Endwin == 0 and smerti == 0:
         smagagz.stop()
+        smagagz2.stop()
+
         if slosnot == 1:
             ProtScet = random.randint(5, 8)
         if slosnot == 2:
@@ -668,6 +685,8 @@ while loop == 1:
                             pole4[cordi1][cordi2] = skin_pers
                         if pole4[cordi1][cordi2] == '💎':
                             print("ERROR")
+                            time.sleep(5)
+                            Endwin = 1
                             mapgame = 0
                             magaz = 1
                         pole4[cordi1][cordi2] = skin_pers
@@ -717,7 +736,6 @@ while loop == 1:
                             time.sleep(5)
                             Endwin = 1
                             mapgame = 0
-
                             magaz = 1
                         pole3[cordi1][cordi2] = skin_pers
                     if rp == 4:
@@ -733,7 +751,6 @@ while loop == 1:
                             time.sleep(5)
                             Endwin = 1
                             mapgame = 0
-
                             magaz = 1
                         pole4[cordi1][cordi2] = skin_pers
                 if rg == ProtScet:
@@ -1058,7 +1075,6 @@ while loop == 1:
                         time.sleep(5)
                         win = 1
                         fight = 0
-
                         Endwin = 1
     if smerti == 1:
         sfonfight.stop()

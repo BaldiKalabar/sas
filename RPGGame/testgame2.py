@@ -20,18 +20,18 @@ for i in range(HEIGHT):
             map_data[i][j] = WALL
 
 # Генерация случайных стен внутри карты
-for _ in range(random.randint(40, 50)):
-    i = random.randint(1, HEIGHT - 2)
-    j = random.randint(1, WIDTH - 2)
-    map_data[i][j] = WALL
+# for _ in range(random.randint(40, 50)):
+#     i = random.randint(1, HEIGHT - 2)
+#     j = random.randint(1, WIDTH - 2)
+#     map_data[i][j] = WALL
 
 # Генерация выхода
-while True:
-    i = random.randint(1, HEIGHT - 2)
-    j = random.randint(1, WIDTH - 2)
-    if map_data[i][j] == FLOOR:
-        map_data[i][j] = EXIT
-        break
+# while True:
+#     i = random.randint(1, HEIGHT - 2)
+#     j = random.randint(1, WIDTH - 2)
+#     if map_data[i][j] == FLOOR:
+#         map_data[i][j] = EXIT
+#         break
 
 # Генерация персонажа
 while True:
@@ -44,3 +44,6 @@ while True:
 # Вывод карты
 for row in map_data:
     print(' '.join(row))
+
+
+
